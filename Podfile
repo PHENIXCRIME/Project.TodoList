@@ -15,5 +15,8 @@ target 'Project.TodoList' do
   target 'Project.TodoListUITests' do
     # Pods for testing
   end
+  
+  pod 'FirebaseAuth'
+  pod 'GoogleSignIn'
 
 end
