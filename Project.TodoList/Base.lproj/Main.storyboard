@@ -1,24 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="10Q-za-Ofb">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--ToDoList-->
+        <scene sceneID="wPZ-Y6-IJf">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wf3-jY-vlx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="4EV-k3-wwM" customClass="TodolistViewController" customModule="Project_TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n1F-RN-Zaa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODO LIST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlq-Bh-Pmw">
+                                <rect key="frame" x="24" y="104" width="366" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ctp-Q4-VZE">
+                                <rect key="frame" x="24" y="156" width="366" height="650"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kqc-OH-Urr">
+                                <rect key="frame" x="340" y="822" width="50" height="50"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iqG-0D-GQm">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGL-hs-J9G">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="btnAddToDoList:" destination="4EV-k3-wwM" eventType="touchUpInside" id="jZY-KS-VOE"/>
+                                            <segue destination="cQn-RD-ZnA" kind="show" id="9cM-qI-7bd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="iqG-0D-GQm" secondAttribute="bottom" id="0UL-Vp-Yzd"/>
+                                    <constraint firstAttribute="trailing" secondItem="dGL-hs-J9G" secondAttribute="trailing" id="3Pt-cO-r2Y"/>
+                                    <constraint firstItem="dGL-hs-J9G" firstAttribute="top" secondItem="Kqc-OH-Urr" secondAttribute="top" id="ErU-Bi-2MP"/>
+                                    <constraint firstItem="iqG-0D-GQm" firstAttribute="leading" secondItem="Kqc-OH-Urr" secondAttribute="leading" id="NLv-ul-94m"/>
+                                    <constraint firstAttribute="height" constant="50" id="NYc-9d-gRu"/>
+                                    <constraint firstItem="dGL-hs-J9G" firstAttribute="leading" secondItem="Kqc-OH-Urr" secondAttribute="leading" id="VAP-hZ-c7d"/>
+                                    <constraint firstAttribute="bottom" secondItem="dGL-hs-J9G" secondAttribute="bottom" id="W39-VZ-WvA"/>
+                                    <constraint firstAttribute="trailing" secondItem="iqG-0D-GQm" secondAttribute="trailing" id="fuE-Ef-gmN"/>
+                                    <constraint firstAttribute="width" secondItem="Kqc-OH-Urr" secondAttribute="height" multiplier="1:1" id="qNY-IA-adl"/>
+                                    <constraint firstItem="iqG-0D-GQm" firstAttribute="top" secondItem="Kqc-OH-Urr" secondAttribute="top" id="vbK-DP-0z7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qq2-VX-2oS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jlq-Bh-Pmw" firstAttribute="leading" secondItem="qq2-VX-2oS" secondAttribute="leading" constant="24" id="09Z-ZO-UcS"/>
+                            <constraint firstItem="qq2-VX-2oS" firstAttribute="trailing" secondItem="ctp-Q4-VZE" secondAttribute="trailing" constant="24" id="7aB-u0-Q9u"/>
+                            <constraint firstItem="qq2-VX-2oS" firstAttribute="trailing" secondItem="jlq-Bh-Pmw" secondAttribute="trailing" constant="24" id="H12-jY-YCq"/>
+                            <constraint firstItem="ctp-Q4-VZE" firstAttribute="leading" secondItem="qq2-VX-2oS" secondAttribute="leading" constant="24" id="Zrc-t1-Vmf"/>
+                            <constraint firstAttribute="trailing" secondItem="Kqc-OH-Urr" secondAttribute="trailing" constant="24" id="gZl-7d-luR"/>
+                            <constraint firstItem="jlq-Bh-Pmw" firstAttribute="top" secondItem="qq2-VX-2oS" secondAttribute="top" constant="16" id="njj-bQ-G9u"/>
+                            <constraint firstAttribute="bottom" secondItem="Kqc-OH-Urr" secondAttribute="bottom" constant="24" id="ny4-iU-D7e"/>
+                            <constraint firstItem="Kqc-OH-Urr" firstAttribute="top" secondItem="ctp-Q4-VZE" secondAttribute="bottom" constant="16" id="rvR-EU-le5"/>
+                            <constraint firstItem="ctp-Q4-VZE" firstAttribute="top" secondItem="jlq-Bh-Pmw" secondAttribute="bottom" constant="16" id="yZu-gc-3J4"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="ToDoList" id="LXI-qd-eO3">
+                        <barButtonItem key="backBarButtonItem" title="back" id="7UV-2Q-zaW"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btnAddToDoList" destination="dGL-hs-J9G" id="TTz-wP-lxw"/>
+                        <outlet property="imgButtonAdd" destination="iqG-0D-GQm" id="mRi-TL-l9H"/>
+                        <outlet property="txTitle" destination="jlq-Bh-Pmw" id="Yal-sF-Z3r"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1931.8840579710147" y="54.910714285714285"/>
+        </scene>
+        <!--Detail To Do List View Controller-->
+        <scene sceneID="7Bx-Mn-x4M">
+            <objects>
+                <viewController id="cQn-RD-ZnA" customClass="DetailToDoListViewController" customModule="Project_TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UoY-MY-wRJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xA5-uN-eIy">
+                                <rect key="frame" x="32" y="790" width="40" height="40"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iNd-ha-JFL">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N07-l3-4om">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="btnAddToDoList:" destination="4EV-k3-wwM" eventType="touchUpInside" id="JUJ-cm-gGT"/>
+                                            <action selector="btnDeleteToDoList:" destination="cQn-RD-ZnA" eventType="touchUpInside" id="x3p-GK-x7o"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="iNd-ha-JFL" firstAttribute="top" secondItem="xA5-uN-eIy" secondAttribute="top" id="BXE-sV-zmT"/>
+                                    <constraint firstAttribute="trailing" secondItem="N07-l3-4om" secondAttribute="trailing" id="JkO-9Y-U3O"/>
+                                    <constraint firstItem="N07-l3-4om" firstAttribute="top" secondItem="xA5-uN-eIy" secondAttribute="top" id="Kjp-Xw-v6W"/>
+                                    <constraint firstAttribute="width" secondItem="xA5-uN-eIy" secondAttribute="height" multiplier="1:1" id="Yjp-pq-lig"/>
+                                    <constraint firstAttribute="trailing" secondItem="iNd-ha-JFL" secondAttribute="trailing" id="fQn-Ca-r0A"/>
+                                    <constraint firstAttribute="bottom" secondItem="N07-l3-4om" secondAttribute="bottom" id="iHR-Fu-sSZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="iNd-ha-JFL" secondAttribute="bottom" id="mCZ-qd-bJe"/>
+                                    <constraint firstItem="iNd-ha-JFL" firstAttribute="leading" secondItem="xA5-uN-eIy" secondAttribute="leading" id="qFL-Po-bYz"/>
+                                    <constraint firstItem="N07-l3-4om" firstAttribute="leading" secondItem="xA5-uN-eIy" secondAttribute="leading" id="wxC-Lo-mr9"/>
+                                    <constraint firstAttribute="height" constant="40" id="yh9-Lc-gFS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DaX-aV-0Kj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DaX-aV-0Kj" firstAttribute="bottom" secondItem="xA5-uN-eIy" secondAttribute="bottom" constant="32" id="55V-m6-gFj"/>
+                            <constraint firstItem="xA5-uN-eIy" firstAttribute="width" secondItem="xA5-uN-eIy" secondAttribute="height" multiplier="1:1" id="EHN-u0-he5"/>
+                            <constraint firstItem="xA5-uN-eIy" firstAttribute="leading" secondItem="DaX-aV-0Kj" secondAttribute="leading" constant="32" id="VJC-ZN-raE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="orU-mI-TIx"/>
+                    <connections>
+                        <outlet property="btnDelete" destination="N07-l3-4om" id="oqD-1S-pFx"/>
+                        <outlet property="imgIconDelete" destination="iNd-ha-JFL" id="qW7-t1-S6b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IBt-sM-aMM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2721" y="56"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6gh-oD-asD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="10Q-za-Ofb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xcj-Ah-0DY">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4EV-k3-wwM" kind="relationship" relationship="rootViewController" id="YG1-7S-WqP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JpJ-NK-k4k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1101" y="56"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
