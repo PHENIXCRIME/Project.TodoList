@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,7 +25,11 @@
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ctp-Q4-VZE">
                                 <rect key="frame" x="24" y="156" width="366" height="650"/>
-                                <color key="backgroundColor" name="AccentColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="4EV-k3-wwM" id="GST-c9-xT0"/>
+                                    <outlet property="delegate" destination="4EV-k3-wwM" id="wvx-UD-wK5"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kqc-OH-Urr">
                                 <rect key="frame" x="340" y="822" width="50" height="50"/>
@@ -79,6 +82,7 @@
                     <connections>
                         <outlet property="btnAddToDoList" destination="dGL-hs-J9G" id="TTz-wP-lxw"/>
                         <outlet property="imgButtonAdd" destination="iqG-0D-GQm" id="mRi-TL-l9H"/>
+                        <outlet property="toDoListTableView" destination="ctp-Q4-VZE" id="E3G-ei-XgN"/>
                         <outlet property="txTitle" destination="jlq-Bh-Pmw" id="Yal-sF-Z3r"/>
                     </connections>
                 </viewController>
@@ -93,14 +97,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xA5-uN-eIy">
-                                <rect key="frame" x="32" y="790" width="40" height="40"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xA5-uN-eIy" userLabel="viewBtnDelete">
+                                <rect key="frame" x="32" y="795" width="35" height="35"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iNd-ha-JFL">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N07-l3-4om">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
@@ -120,21 +124,56 @@
                                     <constraint firstAttribute="bottom" secondItem="iNd-ha-JFL" secondAttribute="bottom" id="mCZ-qd-bJe"/>
                                     <constraint firstItem="iNd-ha-JFL" firstAttribute="leading" secondItem="xA5-uN-eIy" secondAttribute="leading" id="qFL-Po-bYz"/>
                                     <constraint firstItem="N07-l3-4om" firstAttribute="leading" secondItem="xA5-uN-eIy" secondAttribute="leading" id="wxC-Lo-mr9"/>
-                                    <constraint firstAttribute="height" constant="40" id="yh9-Lc-gFS"/>
+                                    <constraint firstAttribute="height" constant="35" id="yh9-Lc-gFS"/>
                                 </constraints>
                             </view>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="fBC-yM-1sV">
+                                <rect key="frame" x="47" y="104" width="320" height="216"/>
+                            </datePicker>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello, today" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cwl-GV-Rxq">
+                                <rect key="frame" x="16" y="336" width="382" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="0XW-QE-zx7"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r5s-kN-bMO">
+                                <rect key="frame" x="16" y="432" width="382" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="bLn-eX-ESK"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DaX-aV-0Kj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DaX-aV-0Kj" firstAttribute="bottom" secondItem="xA5-uN-eIy" secondAttribute="bottom" constant="32" id="55V-m6-gFj"/>
+                            <constraint firstItem="Cwl-GV-Rxq" firstAttribute="leading" secondItem="DaX-aV-0Kj" secondAttribute="leading" constant="16" id="E2S-z0-H3S"/>
                             <constraint firstItem="xA5-uN-eIy" firstAttribute="width" secondItem="xA5-uN-eIy" secondAttribute="height" multiplier="1:1" id="EHN-u0-he5"/>
+                            <constraint firstItem="fBC-yM-1sV" firstAttribute="top" secondItem="DaX-aV-0Kj" secondAttribute="top" constant="16" id="FMU-yb-pwv"/>
+                            <constraint firstItem="fBC-yM-1sV" firstAttribute="centerX" secondItem="UoY-MY-wRJ" secondAttribute="centerX" id="KH3-ze-Lta"/>
                             <constraint firstItem="xA5-uN-eIy" firstAttribute="leading" secondItem="DaX-aV-0Kj" secondAttribute="leading" constant="32" id="VJC-ZN-raE"/>
+                            <constraint firstItem="r5s-kN-bMO" firstAttribute="leading" secondItem="DaX-aV-0Kj" secondAttribute="leading" constant="16" id="aGH-Oi-Qhf"/>
+                            <constraint firstItem="DaX-aV-0Kj" firstAttribute="trailing" secondItem="Cwl-GV-Rxq" secondAttribute="trailing" constant="16" id="b3v-HK-3qH"/>
+                            <constraint firstItem="DaX-aV-0Kj" firstAttribute="trailing" secondItem="r5s-kN-bMO" secondAttribute="trailing" constant="16" id="cgA-5o-IUa"/>
+                            <constraint firstItem="Cwl-GV-Rxq" firstAttribute="top" secondItem="fBC-yM-1sV" secondAttribute="bottom" constant="16" id="eIL-Mg-xc2"/>
+                            <constraint firstItem="r5s-kN-bMO" firstAttribute="top" secondItem="Cwl-GV-Rxq" secondAttribute="bottom" constant="16" id="zeg-li-htr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="orU-mI-TIx"/>
                     <connections>
                         <outlet property="btnDelete" destination="N07-l3-4om" id="oqD-1S-pFx"/>
+                        <outlet property="datePicker" destination="fBC-yM-1sV" id="Igy-hP-74D"/>
+                        <outlet property="entryTextViewTaskDetail" destination="r5s-kN-bMO" id="M25-K1-PbZ"/>
+                        <outlet property="entryTextViewTaskTitle" destination="Cwl-GV-Rxq" id="En6-9E-Pj6"/>
                         <outlet property="imgIconDelete" destination="iNd-ha-JFL" id="qW7-t1-S6b"/>
                     </connections>
                 </viewController>
@@ -162,9 +201,9 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

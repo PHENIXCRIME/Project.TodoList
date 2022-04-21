@@ -9,13 +9,32 @@ import UIKit
 
 class DetailToDoListViewController: UIViewController {
 
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBOutlet weak var entryTextViewTaskTitle: UITextView!
+    @IBOutlet weak var entryTextViewTaskDetail: UITextView!
+    
     @IBOutlet weak var imgIconDelete: UIImageView!
     @IBOutlet weak var btnDelete: UIButton!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
         prepareView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        // Mark an entry
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            
+            let entry = Entry(context: context)
+            entry.date = datePicker.date
+            entry.textTitle = entryTextViewTaskTitle.text
+            entry.textDetail = entryTextViewTaskDetail.text
+            
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        }
     }
 
     func prepareView() {
