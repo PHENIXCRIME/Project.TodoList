@@ -127,11 +127,8 @@
                                     <constraint firstAttribute="height" constant="35" id="yh9-Lc-gFS"/>
                                 </constraints>
                             </view>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="fBC-yM-1sV">
-                                <rect key="frame" x="47" y="104" width="320" height="216"/>
-                            </datePicker>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello, today" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cwl-GV-Rxq">
-                                <rect key="frame" x="16" y="336" width="382" height="80"/>
+                                <rect key="frame" x="16" y="104" width="382" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="0XW-QE-zx7"/>
@@ -141,11 +138,8 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r5s-kN-bMO">
-                                <rect key="frame" x="16" y="432" width="382" height="100"/>
+                                <rect key="frame" x="16" y="200" width="382" height="579"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="bLn-eX-ESK"/>
-                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -156,22 +150,21 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DaX-aV-0Kj" firstAttribute="bottom" secondItem="xA5-uN-eIy" secondAttribute="bottom" constant="32" id="55V-m6-gFj"/>
+                            <constraint firstItem="Cwl-GV-Rxq" firstAttribute="top" secondItem="DaX-aV-0Kj" secondAttribute="top" constant="16" id="CUB-IY-toO"/>
+                            <constraint firstItem="xA5-uN-eIy" firstAttribute="top" secondItem="r5s-kN-bMO" secondAttribute="bottom" constant="16" id="CtK-f2-X6C"/>
                             <constraint firstItem="Cwl-GV-Rxq" firstAttribute="leading" secondItem="DaX-aV-0Kj" secondAttribute="leading" constant="16" id="E2S-z0-H3S"/>
                             <constraint firstItem="xA5-uN-eIy" firstAttribute="width" secondItem="xA5-uN-eIy" secondAttribute="height" multiplier="1:1" id="EHN-u0-he5"/>
-                            <constraint firstItem="fBC-yM-1sV" firstAttribute="top" secondItem="DaX-aV-0Kj" secondAttribute="top" constant="16" id="FMU-yb-pwv"/>
-                            <constraint firstItem="fBC-yM-1sV" firstAttribute="centerX" secondItem="UoY-MY-wRJ" secondAttribute="centerX" id="KH3-ze-Lta"/>
+                            <constraint firstItem="r5s-kN-bMO" firstAttribute="top" secondItem="Cwl-GV-Rxq" secondAttribute="bottom" constant="16" id="PsQ-nF-GV9"/>
                             <constraint firstItem="xA5-uN-eIy" firstAttribute="leading" secondItem="DaX-aV-0Kj" secondAttribute="leading" constant="32" id="VJC-ZN-raE"/>
                             <constraint firstItem="r5s-kN-bMO" firstAttribute="leading" secondItem="DaX-aV-0Kj" secondAttribute="leading" constant="16" id="aGH-Oi-Qhf"/>
                             <constraint firstItem="DaX-aV-0Kj" firstAttribute="trailing" secondItem="Cwl-GV-Rxq" secondAttribute="trailing" constant="16" id="b3v-HK-3qH"/>
                             <constraint firstItem="DaX-aV-0Kj" firstAttribute="trailing" secondItem="r5s-kN-bMO" secondAttribute="trailing" constant="16" id="cgA-5o-IUa"/>
-                            <constraint firstItem="Cwl-GV-Rxq" firstAttribute="top" secondItem="fBC-yM-1sV" secondAttribute="bottom" constant="16" id="eIL-Mg-xc2"/>
-                            <constraint firstItem="r5s-kN-bMO" firstAttribute="top" secondItem="Cwl-GV-Rxq" secondAttribute="bottom" constant="16" id="zeg-li-htr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="orU-mI-TIx"/>
                     <connections>
+                        <outlet property="bottomTextViewTaskDetail" destination="CtK-f2-X6C" id="cCn-S7-L9p"/>
                         <outlet property="btnDelete" destination="N07-l3-4om" id="oqD-1S-pFx"/>
-                        <outlet property="datePicker" destination="fBC-yM-1sV" id="Igy-hP-74D"/>
                         <outlet property="entryTextViewTaskDetail" destination="r5s-kN-bMO" id="M25-K1-PbZ"/>
                         <outlet property="entryTextViewTaskTitle" destination="Cwl-GV-Rxq" id="En6-9E-Pj6"/>
                         <outlet property="imgIconDelete" destination="iNd-ha-JFL" id="qW7-t1-S6b"/>

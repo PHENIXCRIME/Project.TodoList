@@ -17,11 +17,15 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var imgIconDelete: UIImageView!
     @IBOutlet weak var btnDelete: UIButton!
         
+    @IBOutlet weak var bottomTextViewTaskDetail: NSLayoutConstraint!
+    
     var entry: Entry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
         prepareView()
         
         if entry == nil {
@@ -31,6 +35,8 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
                 entry = Entry(context: context)
                 entry?.textTitle = entryTextViewTaskTitle.text
                 entry?.textDetail = entryTextViewTaskDetail.text
+                
+                entryTextViewTaskTitle.becomeFirstResponder()
             }
         }
         
@@ -44,6 +50,16 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeightd = keyboardRectangle.height
+            
+            bottomTextViewTaskDetail.constant = keyboardHeightd
+        }
     }
 
     func prepareView() {
