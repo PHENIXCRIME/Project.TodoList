@@ -17,24 +17,38 @@ class DetailToDoListViewController: UIViewController {
     @IBOutlet weak var imgIconDelete: UIImageView!
     @IBOutlet weak var btnDelete: UIButton!
         
+    var entry: Entry?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         prepareView()
+        
+        if entry == nil {
+            // create
+            
+        } else {
+            // fill in info about exitsing entry
+            entryTextViewTaskTitle.text = entry!.textTitle
+            entryTextViewTaskDetail.text = entry!.textDetail
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
-        // Mark an entry
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            
-            let entry = Entry(context: context)
-            entry.date = datePicker.date
-            entry.textTitle = entryTextViewTaskTitle.text
-            entry.textDetail = entryTextViewTaskDetail.text
-            
-            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        if entry == nil {
+            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+                
+                let entry = Entry(context: context)
+                entry.date = datePicker.date
+                entry.textTitle = entryTextViewTaskTitle.text
+                entry.textDetail = entryTextViewTaskDetail.text
+                
+            }
         }
+        
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+
     }
 
     func prepareView() {
@@ -47,5 +61,16 @@ class DetailToDoListViewController: UIViewController {
     @IBAction func btnDeleteToDoList(_ sender: Any) {
         
         print("Delete ToDoList")
+        
+        if entry != nil {
+            
+            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+                
+                context.delete(entry!)
+                try? context.save()
+            }
+        }
+        
+        navigationController?.popViewController(animated: true)
     }
 }

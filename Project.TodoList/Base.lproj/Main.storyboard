@@ -11,7 +11,6 @@
         <!--ToDoList-->
         <scene sceneID="wPZ-Y6-IJf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wf3-jY-vlx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="4EV-k3-wwM" customClass="TodolistViewController" customModule="Project_TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n1F-RN-Zaa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -43,7 +42,7 @@
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
                                             <action selector="btnAddToDoList:" destination="4EV-k3-wwM" eventType="touchUpInside" id="jZY-KS-VOE"/>
-                                            <segue destination="cQn-RD-ZnA" kind="show" id="9cM-qI-7bd"/>
+                                            <segue destination="cQn-RD-ZnA" kind="show" identifier="segueToEntry" id="9cM-qI-7bd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -86,6 +85,7 @@
                         <outlet property="txTitle" destination="jlq-Bh-Pmw" id="Yal-sF-Z3r"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wf3-jY-vlx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1931.8840579710147" y="54.910714285714285"/>
         </scene>

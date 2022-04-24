@@ -37,6 +37,10 @@ class TodolistViewController: UIViewController {
         
         if let entryVC = segue.destination as? DetailToDoListViewController {
             
+            if let entryToBeSent = sender as? Entry {
+                
+                entryVC.entry = entryToBeSent
+            }
         }
     }
     
@@ -89,4 +93,10 @@ extension TodolistViewController: UITableViewDataSource {
 
 extension TodolistViewController: UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let entry = entries[indexPath.row]
+
+        performSegue(withIdentifier: "segueToEntry", sender: entry)
+    }
 }
