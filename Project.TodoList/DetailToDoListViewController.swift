@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailToDoListViewController: UIViewController {
+class DetailToDoListViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -25,30 +25,25 @@ class DetailToDoListViewController: UIViewController {
         prepareView()
         
         if entry == nil {
-            // create
             
-        } else {
-            // fill in info about exitsing entry
-            entryTextViewTaskTitle.text = entry!.textTitle
-            entryTextViewTaskDetail.text = entry!.textDetail
+            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+                
+                entry = Entry(context: context)
+                entry?.textTitle = entryTextViewTaskTitle.text
+                entry?.textDetail = entryTextViewTaskDetail.text
+            }
         }
+        
+        entryTextViewTaskTitle.text = entry?.textTitle
+        entryTextViewTaskDetail.text = entry?.textDetail
+        
+        entryTextViewTaskTitle.delegate = self
+        entryTextViewTaskDetail.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
-        if entry == nil {
-            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-                
-                let entry = Entry(context: context)
-                entry.date = datePicker.date
-                entry.textTitle = entryTextViewTaskTitle.text
-                entry.textDetail = entryTextViewTaskDetail.text
-                
-            }
-        }
-        
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
-
     }
 
     func prepareView() {
@@ -73,4 +68,13 @@ class DetailToDoListViewController: UIViewController {
         
         navigationController?.popViewController(animated: true)
     }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        
+        entry?.textTitle = entryTextViewTaskTitle.text
+        entry?.textDetail = entryTextViewTaskDetail.text
+        
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    }
+    
 }
