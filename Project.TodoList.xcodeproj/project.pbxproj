@@ -112,6 +112,24 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		464234FD2815B5CC0058BA4A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				463AF2152811253F006E269B /* TodolistViewController.swift */,
+				463AF2172811379E006E269B /* DetailToDoListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		464234FE2815B5D90058BA4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				468AFA7F28100AC100372589 /* LaunchScreen.storyboard */,
+				468AFA7728100ABF00372589 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		468AFA6528100ABF00372589 = {
 			isa = PBXGroup;
 			children = (
@@ -139,10 +157,8 @@
 			children = (
 				468AFA7128100ABF00372589 /* AppDelegate.swift */,
 				468AFA7328100ABF00372589 /* SceneDelegate.swift */,
-				468AFA7F28100AC100372589 /* LaunchScreen.storyboard */,
-				468AFA7728100ABF00372589 /* Main.storyboard */,
-				463AF2152811253F006E269B /* TodolistViewController.swift */,
-				463AF2172811379E006E269B /* DetailToDoListViewController.swift */,
+				464234FE2815B5D90058BA4A /* View */,
+				464234FD2815B5CC0058BA4A /* Controller */,
 				463AF21F2811521E006E269B /* Cell */,
 				463AF22828115F77006E269B /* Entry+CoreDataClass.swift */,
 				463AF22728115F77006E269B /* Entry+CoreDataProperties.swift */,

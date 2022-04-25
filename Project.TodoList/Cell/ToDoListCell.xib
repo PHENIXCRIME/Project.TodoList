@@ -23,9 +23,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QeH-ql-GNU">
                                 <rect key="frame" x="16" y="16" width="30" height="30"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Bv-D9-hw1">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bR-TM-iHe">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="Button"/>
@@ -34,18 +31,21 @@
                                             <action selector="btnCheck:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="U5t-8S-Wb4"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xX0-qQ-3mi">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="0Bv-D9-hw1" firstAttribute="leading" secondItem="QeH-ql-GNU" secondAttribute="leading" id="9wG-ec-zr7"/>
+                                    <constraint firstItem="xX0-qQ-3mi" firstAttribute="top" secondItem="QeH-ql-GNU" secondAttribute="top" id="2n3-py-Ecv"/>
+                                    <constraint firstAttribute="trailing" secondItem="xX0-qQ-3mi" secondAttribute="trailing" id="59Q-mW-O40"/>
                                     <constraint firstAttribute="width" secondItem="QeH-ql-GNU" secondAttribute="height" multiplier="1:1" id="Ax8-Ch-Rmg"/>
-                                    <constraint firstItem="0Bv-D9-hw1" firstAttribute="top" secondItem="QeH-ql-GNU" secondAttribute="top" id="DVc-jA-mjH"/>
-                                    <constraint firstAttribute="trailing" secondItem="0Bv-D9-hw1" secondAttribute="trailing" id="Kda-6p-eOO"/>
                                     <constraint firstAttribute="trailing" secondItem="8bR-TM-iHe" secondAttribute="trailing" id="Td5-aQ-v7b"/>
                                     <constraint firstItem="8bR-TM-iHe" firstAttribute="leading" secondItem="QeH-ql-GNU" secondAttribute="leading" id="VN9-Gd-zPv"/>
+                                    <constraint firstAttribute="bottom" secondItem="xX0-qQ-3mi" secondAttribute="bottom" id="XIW-pO-DvZ"/>
                                     <constraint firstItem="8bR-TM-iHe" firstAttribute="top" secondItem="QeH-ql-GNU" secondAttribute="top" id="bAU-JA-wTB"/>
+                                    <constraint firstItem="xX0-qQ-3mi" firstAttribute="leading" secondItem="QeH-ql-GNU" secondAttribute="leading" id="e3k-Ei-T6J"/>
                                     <constraint firstAttribute="bottom" secondItem="8bR-TM-iHe" secondAttribute="bottom" id="lbi-1b-x7h"/>
-                                    <constraint firstAttribute="bottom" secondItem="0Bv-D9-hw1" secondAttribute="bottom" id="oLG-as-peD"/>
                                     <constraint firstAttribute="height" constant="30" id="xue-k8-c1q"/>
                                 </constraints>
                             </view>
@@ -78,7 +78,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="btnCheck" destination="8bR-TM-iHe" id="ffD-r6-XCL"/>
-                <outlet property="imgBtnCheck" destination="0Bv-D9-hw1" id="Yer-Oe-bXe"/>
+                <outlet property="imgBtnCheck" destination="xX0-qQ-3mi" id="044-SX-Ez2"/>
                 <outlet property="txTaskTitle" destination="ZsZ-ma-INl" id="J34-WI-dxk"/>
                 <outlet property="viewBtnCheck" destination="QeH-ql-GNU" id="Prh-1Z-OXJ"/>
                 <outlet property="viewCell" destination="TBO-g9-5df" id="K5G-lk-sfG"/>
@@ -89,9 +89,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -19,27 +19,38 @@ class ToDoListCell: UITableViewCell {
     
     @IBOutlet weak var txTaskTitle: UILabel!
     
+    var isMarked: Bool = false
+    
     override func awakeFromNib() {
-        super.awakeFromNib()
         
+        super.awakeFromNib()
         prepareView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
+        
         super.setSelected(selected, animated: animated)
-
     }
     
     func prepareView() {
         
         viewCell.backgroundColor = .gray
         viewCell.layer.cornerRadius = 15
+        viewBtnCheck.backgroundColor = .clear
         
+        imgBtnCheck.image = UIImage(named: "ic_unchecked")?.withRenderingMode(.alwaysOriginal)
     }
     
     @IBAction func btnCheck(_ sender: Any) {
         
-        print("Check")
+        if isMarked {
+            
+            isMarked = false
+            imgBtnCheck.image = UIImage(named: "ic_checked")?.withRenderingMode(.alwaysOriginal)
+        } else {
+            
+            isMarked = true
+            imgBtnCheck.image = UIImage(named: "ic_unchecked")?.withRenderingMode(.alwaysOriginal)
+        }
     }
-    
 }

@@ -71,8 +71,6 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func btnDeleteToDoList(_ sender: Any) {
         
-        print("Delete ToDoList")
-        
         if entry != nil {
             
             if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
