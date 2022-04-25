@@ -138,40 +138,86 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter task detail" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r5s-kN-bMO">
-                                <rect key="frame" x="16" y="170" width="382" height="609"/>
+                                <rect key="frame" x="16" y="170" width="382" height="604"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlR-vU-Hg8">
+                                <rect key="frame" x="240.5" y="790" width="157.5" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deL-Xz-3E6">
+                                        <rect key="frame" x="16" y="8" width="97.5" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7ys-gR-qoa">
+                                        <rect key="frame" x="121.5" y="12.5" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="7ys-gR-qoa" secondAttribute="height" multiplier="1:1" id="aYh-H2-ALS"/>
+                                            <constraint firstAttribute="height" constant="20" id="jA7-8i-kX9"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEu-eQ-MUl">
+                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="45"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="btnNewTask:" destination="cQn-RD-ZnA" eventType="touchUpInside" id="Myh-1N-cu2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="rEu-eQ-MUl" secondAttribute="trailing" id="2tW-bj-SH1"/>
+                                    <constraint firstItem="rEu-eQ-MUl" firstAttribute="leading" secondItem="hlR-vU-Hg8" secondAttribute="leading" id="85j-iQ-UIE"/>
+                                    <constraint firstAttribute="bottom" secondItem="rEu-eQ-MUl" secondAttribute="bottom" id="DuG-IZ-xcX"/>
+                                    <constraint firstAttribute="height" constant="45" id="Gfd-6i-VWB"/>
+                                    <constraint firstItem="deL-Xz-3E6" firstAttribute="leading" secondItem="hlR-vU-Hg8" secondAttribute="leading" constant="16" id="TKf-5j-VoL"/>
+                                    <constraint firstItem="deL-Xz-3E6" firstAttribute="top" secondItem="hlR-vU-Hg8" secondAttribute="top" constant="8" id="Ujp-fV-Slg"/>
+                                    <constraint firstAttribute="trailing" secondItem="7ys-gR-qoa" secondAttribute="trailing" constant="16" id="YGE-nS-jNY"/>
+                                    <constraint firstItem="rEu-eQ-MUl" firstAttribute="top" secondItem="hlR-vU-Hg8" secondAttribute="top" id="cFc-UZ-K3Y"/>
+                                    <constraint firstItem="7ys-gR-qoa" firstAttribute="leading" secondItem="deL-Xz-3E6" secondAttribute="trailing" constant="8" id="dQZ-hS-Uo9"/>
+                                    <constraint firstAttribute="width" secondItem="hlR-vU-Hg8" secondAttribute="height" multiplier="7:2" id="eQr-5W-FFc"/>
+                                    <constraint firstItem="7ys-gR-qoa" firstAttribute="centerY" secondItem="deL-Xz-3E6" secondAttribute="centerY" id="fts-2c-paT"/>
+                                    <constraint firstAttribute="bottom" secondItem="deL-Xz-3E6" secondAttribute="bottom" constant="8" id="s5q-aZ-d6h"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DaX-aV-0Kj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="DaX-aV-0Kj" firstAttribute="trailing" secondItem="hlR-vU-Hg8" secondAttribute="trailing" constant="16" id="0Oa-v9-9Kt"/>
                             <constraint firstItem="DaX-aV-0Kj" firstAttribute="bottom" secondItem="xA5-uN-eIy" secondAttribute="bottom" constant="32" id="55V-m6-gFj"/>
                             <constraint firstItem="Cwl-GV-Rxq" firstAttribute="top" secondItem="DaX-aV-0Kj" secondAttribute="top" constant="16" id="CUB-IY-toO"/>
-                            <constraint firstItem="xA5-uN-eIy" firstAttribute="top" secondItem="r5s-kN-bMO" secondAttribute="bottom" constant="16" id="CtK-f2-X6C"/>
                             <constraint firstItem="Cwl-GV-Rxq" firstAttribute="leading" secondItem="DaX-aV-0Kj" secondAttribute="leading" constant="16" id="E2S-z0-H3S"/>
                             <constraint firstItem="xA5-uN-eIy" firstAttribute="width" secondItem="xA5-uN-eIy" secondAttribute="height" multiplier="1:1" id="EHN-u0-he5"/>
                             <constraint firstItem="r5s-kN-bMO" firstAttribute="top" secondItem="Cwl-GV-Rxq" secondAttribute="bottom" constant="16" id="PsQ-nF-GV9"/>
                             <constraint firstItem="xA5-uN-eIy" firstAttribute="leading" secondItem="DaX-aV-0Kj" secondAttribute="leading" constant="32" id="VJC-ZN-raE"/>
+                            <constraint firstItem="hlR-vU-Hg8" firstAttribute="top" secondItem="r5s-kN-bMO" secondAttribute="bottom" constant="16" id="Xcp-tH-Hej"/>
                             <constraint firstItem="r5s-kN-bMO" firstAttribute="leading" secondItem="DaX-aV-0Kj" secondAttribute="leading" constant="16" id="aGH-Oi-Qhf"/>
                             <constraint firstItem="DaX-aV-0Kj" firstAttribute="trailing" secondItem="Cwl-GV-Rxq" secondAttribute="trailing" constant="16" id="b3v-HK-3qH"/>
                             <constraint firstItem="DaX-aV-0Kj" firstAttribute="trailing" secondItem="r5s-kN-bMO" secondAttribute="trailing" constant="16" id="cgA-5o-IUa"/>
+                            <constraint firstItem="xA5-uN-eIy" firstAttribute="centerY" secondItem="hlR-vU-Hg8" secondAttribute="centerY" id="uSJ-uu-uUg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="orU-mI-TIx"/>
                     <connections>
-                        <outlet property="bottomTextViewTaskDetail" destination="CtK-f2-X6C" id="cCn-S7-L9p"/>
                         <outlet property="btnDelete" destination="N07-l3-4om" id="oqD-1S-pFx"/>
+                        <outlet property="btnNewTask" destination="rEu-eQ-MUl" id="D0J-vD-DVd"/>
                         <outlet property="entryTextViewTaskDetail" destination="r5s-kN-bMO" id="M25-K1-PbZ"/>
                         <outlet property="entryTextViewTaskTitle" destination="Cwl-GV-Rxq" id="En6-9E-Pj6"/>
+                        <outlet property="imgBtnNewTask" destination="7ys-gR-qoa" id="YLS-Vb-zfs"/>
                         <outlet property="imgIconDelete" destination="iNd-ha-JFL" id="qW7-t1-S6b"/>
+                        <outlet property="txBtnNewTask" destination="deL-Xz-3E6" id="oNr-xS-ihy"/>
+                        <outlet property="viewBtnNewTask" destination="hlR-vU-Hg8" id="B7l-d0-w3t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IBt-sM-aMM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2721" y="56"/>
+            <point key="canvasLocation" x="2720.289855072464" y="55.580357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6gh-oD-asD">
@@ -198,6 +244,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

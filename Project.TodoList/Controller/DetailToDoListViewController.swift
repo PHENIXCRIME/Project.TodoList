@@ -16,7 +16,12 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var imgIconDelete: UIImageView!
     @IBOutlet weak var btnDelete: UIButton!
-        
+    
+    @IBOutlet weak var viewBtnNewTask: UIView!
+    @IBOutlet weak var txBtnNewTask: UILabel!
+    @IBOutlet weak var imgBtnNewTask: UIImageView!
+    @IBOutlet weak var btnNewTask: UIButton!
+    
     @IBOutlet weak var bottomTextViewTaskDetail: NSLayoutConstraint!
     
     var entry: Entry?
@@ -27,18 +32,6 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         prepareView()
-        
-        if entry == nil {
-            
-            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-                
-                entry = Entry(context: context)
-                entry?.textTitle = entryTextViewTaskTitle.text
-                entry?.textDetail = entryTextViewTaskDetail.text
-                
-                entryTextViewTaskTitle.becomeFirstResponder()
-            }
-        }
         
         entryTextViewTaskTitle.text = entry?.textTitle
         entryTextViewTaskDetail.text = entry?.textDetail
@@ -67,6 +60,32 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
         if let imgButton = UIImage(named: "ic_trash") {
             imgIconDelete.image = imgButton
         }
+        
+        viewBtnNewTask.backgroundColor = .orange
+        viewBtnNewTask.layer.cornerRadius = 15
+    
+        txBtnNewTask.text = "New Task"
+        
+        if let imageBtnNewTask = UIImage(named: "ic_angle_up") {
+            imgBtnNewTask.image = imageBtnNewTask
+        }
+    }
+    
+    @IBAction func btnNewTask(_ sender: Any) {
+        
+        if entry == nil {
+            
+            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+                
+                entry = Entry(context: context)
+                entry?.textTitle = entryTextViewTaskTitle.text
+                entry?.textDetail = entryTextViewTaskDetail.text
+                
+                entryTextViewTaskTitle.becomeFirstResponder()
+            }
+        }
+        
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func btnDeleteToDoList(_ sender: Any) {
