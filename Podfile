@@ -19,4 +19,18 @@ target 'Project.TodoList' do
   pod 'FirebaseAuth'
   pod 'GoogleSignIn'
 
+  pod 'Material'
+  
+  pod 'MaterialComponents'
+  pod 'MaterialComponents/TextControls+FilledTextAreas'
+  pod 'MaterialComponents/TextControls+FilledTextFields'
+  pod 'MaterialComponents/TextControls+OutlinedTextAreas'
+  pod 'MaterialComponents/TextControls+OutlinedTextFields'
+  pod 'MaterialComponents/TextFields'
+  pod 'MaterialComponents/LibraryInfo'
+  pod 'MaterialComponents/BottomNavigation'
+  pod 'MaterialComponents/Buttons'
+
+  pod 'UIColor_Hex_Swift'
+  
 end
