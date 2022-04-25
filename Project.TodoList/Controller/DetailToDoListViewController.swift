@@ -14,6 +14,10 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var entryTextViewTaskTitle: UITextView!
     @IBOutlet weak var entryTextViewTaskDetail: UITextView!
     
+    @IBOutlet weak var viewBtnClose: UIView!
+    @IBOutlet weak var imgBtnClose: UIImageView!
+    @IBOutlet weak var btnClose: UIButton!
+    
     @IBOutlet weak var imgIconDelete: UIImageView!
     @IBOutlet weak var btnDelete: UIButton!
     
@@ -44,31 +48,34 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
         
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            let keyboardHeightd = keyboardRectangle.height
-            
-            bottomTextViewTaskDetail.constant = keyboardHeightd
-        }
-    }
 
     func prepareView() {
         
-        if let imgButton = UIImage(named: "ic_trash") {
-            imgIconDelete.image = imgButton
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        viewBtnClose.backgroundColor = .clear
+        
+        if let imageBtnClose = UIImage(named: "ic_close") {
+            imgBtnClose.image = imageBtnClose
+        }
+        
+        if let imageBtnDelete = UIImage(named: "ic_trash") {
+            imgIconDelete.image = imageBtnDelete
         }
         
         viewBtnNewTask.backgroundColor = .orange
-        viewBtnNewTask.layer.cornerRadius = 15
+        viewBtnNewTask.layer.cornerRadius = 20
     
         txBtnNewTask.text = "New Task"
         
         if let imageBtnNewTask = UIImage(named: "ic_angle_up") {
             imgBtnNewTask.image = imageBtnNewTask
         }
+    }
+    
+    @IBAction func btnCloseTask(_ sender: Any) {
+        
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func btnNewTask(_ sender: Any) {
@@ -108,6 +115,16 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
         entry?.textDetail = entryTextViewTaskDetail.text
         
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeightd = keyboardRectangle.height
+            
+            bottomTextViewTaskDetail.constant = keyboardHeightd
+        }
     }
     
 }
