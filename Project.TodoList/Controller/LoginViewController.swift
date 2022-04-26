@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
         
         imgCenter.contentMode = .scaleAspectFit
         
-        viewButtonLogin.backgroundColor = .lightGray
+        viewButtonLogin.backgroundColor = AppColor.grayF7
         viewButtonLogin.layer.cornerRadius = 20
         
         txButtonLogin.text = "Continue with Google"

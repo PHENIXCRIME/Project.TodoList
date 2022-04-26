@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODO LIST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlq-Bh-Pmw">
-                                <rect key="frame" x="32" y="112" width="350" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <rect key="frame" x="32" y="112" width="350" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ctp-Q4-VZE">
-                                <rect key="frame" x="32" y="160" width="350" height="630"/>
+                                <rect key="frame" x="32" y="166" width="350" height="624"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="4EV-k3-wwM" id="GST-c9-xT0"/>
@@ -117,7 +117,8 @@
                         <outlet property="imgButtonLogout" destination="SEF-nq-JiZ" id="M1S-h6-jlt"/>
                         <outlet property="toDoListTableView" destination="ctp-Q4-VZE" id="E3G-ei-XgN"/>
                         <outlet property="txTitle" destination="jlq-Bh-Pmw" id="Yal-sF-Z3r"/>
-                        <outlet property="viewButtomLogout" destination="kIa-2J-mdd" id="rqK-et-XZ1"/>
+                        <outlet property="viewButtonAdd" destination="Kqc-OH-Urr" id="WoK-yb-4Fo"/>
+                        <outlet property="viewButtonLogout" destination="kIa-2J-mdd" id="nwh-gW-FFB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wf3-jY-vlx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -310,7 +311,7 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EkI-fy-vyt">
                                         <rect key="frame" x="62" y="19.5" width="256" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>

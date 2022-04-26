@@ -63,7 +63,7 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
             imgIconDelete.image = imageBtnDelete
         }
         
-        viewBtnNewTask.backgroundColor = .orange
+        viewBtnNewTask.backgroundColor = AppColor.grayF7
         viewBtnNewTask.layer.cornerRadius = 20
     
         txBtnNewTask.text = "New Task"

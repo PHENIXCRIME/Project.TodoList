@@ -76,7 +76,7 @@ enum AppColor {
     static let gray8C9 = UIColor.init(hexString: "#8C92A7")
     static let grayF7 = UIColor.init(hexString: "#F7F8FC")
     
-    
+    static let blue100 = UIColor.init(hexString: "E9F0F4")
 
     enum Button {
         static let darkGray = AppColor.gray4D

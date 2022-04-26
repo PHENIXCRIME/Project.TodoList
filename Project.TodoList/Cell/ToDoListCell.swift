@@ -34,7 +34,7 @@ class ToDoListCell: UITableViewCell {
     
     func prepareView() {
         
-        viewCell.backgroundColor = .lightGray
+        viewCell.backgroundColor = AppColor.grayF7
         viewCell.layer.cornerRadius = 15
         viewBtnCheck.backgroundColor = .clear
         

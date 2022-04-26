@@ -12,10 +12,11 @@ class TodolistViewController: UIViewController {
     
     @IBOutlet weak var txTitle: UILabel!
     @IBOutlet weak var toDoListTableView: UITableView!
+    @IBOutlet weak var viewButtonAdd: UIView!
     @IBOutlet weak var imgButtonAdd: UIImageView!
     @IBOutlet weak var btnAddToDoList: UIButton!
     
-    @IBOutlet weak var viewButtomLogout: UIView!
+    @IBOutlet weak var viewButtonLogout: UIView!
     @IBOutlet weak var imgButtonLogout: UIImageView!
     @IBOutlet weak var btnLogout: UIButton!
     
@@ -61,7 +62,11 @@ class TodolistViewController: UIViewController {
     
     func prepareView() {
         
+        view.backgroundColor = AppColor.blue100
+        
         txTitle.text = "todo list".uppercased()
+        
+        viewButtonAdd.backgroundColor = .clear
         
         if let imageAdd = UIImage(named: "ic_add") {
             imgButtonAdd.image = imageAdd
@@ -69,8 +74,9 @@ class TodolistViewController: UIViewController {
         
         toDoListTableView.rowHeight = UITableView.automaticDimension
         toDoListTableView.separatorStyle = .none
+        toDoListTableView.backgroundColor = .clear
         
-        viewButtomLogout.backgroundColor = .clear
+        viewButtonLogout.backgroundColor = .clear
         
         if let imageLogout = UIImage(named: "ic_out") {
             imgButtonLogout.image = imageLogout
