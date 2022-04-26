@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4626A2522817A87C00A7A6AF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626A2512817A87C00A7A6AF /* UIColorExtension.swift */; };
+		4626A2542817A88E00A7A6AF /* ExtensionDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626A2532817A88E00A7A6AF /* ExtensionDevice.swift */; };
+		4626A2562817A89900A7A6AF /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626A2552817A89900A7A6AF /* AppColor.swift */; };
+		4626A2582817A8A300A7A6AF /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626A2572817A8A300A7A6AF /* AppUtility.swift */; };
 		463AF2162811253F006E269B /* TodolistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AF2152811253F006E269B /* TodolistViewController.swift */; };
 		463AF2182811379E006E269B /* DetailToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AF2172811379E006E269B /* DetailToDoListViewController.swift */; };
 		463AF21D28115219006E269B /* ToDoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AF21B28115219006E269B /* ToDoListCell.swift */; };
@@ -50,6 +54,10 @@
 		318CDC6DC6BDC5AA9EAB54D5 /* Pods-Project.TodoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.TodoList.release.xcconfig"; path = "Target Support Files/Pods-Project.TodoList/Pods-Project.TodoList.release.xcconfig"; sourceTree = "<group>"; };
 		3B8134EA6C91B49D946C7839 /* Pods_Project_TodoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_TodoList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9B935644E45667B9E1350F /* Pods-Project.TodoListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.TodoListTests.release.xcconfig"; path = "Target Support Files/Pods-Project.TodoListTests/Pods-Project.TodoListTests.release.xcconfig"; sourceTree = "<group>"; };
+		4626A2512817A87C00A7A6AF /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		4626A2532817A88E00A7A6AF /* ExtensionDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDevice.swift; sourceTree = "<group>"; };
+		4626A2552817A89900A7A6AF /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		4626A2572817A8A300A7A6AF /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		463AF2152811253F006E269B /* TodolistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodolistViewController.swift; sourceTree = "<group>"; };
 		463AF2172811379E006E269B /* DetailToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailToDoListViewController.swift; sourceTree = "<group>"; };
 		463AF21B28115219006E269B /* ToDoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListCell.swift; sourceTree = "<group>"; };
@@ -103,6 +111,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4626A2502817A85E00A7A6AF /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				4626A2512817A87C00A7A6AF /* UIColorExtension.swift */,
+				4626A2532817A88E00A7A6AF /* ExtensionDevice.swift */,
+				4626A2552817A89900A7A6AF /* AppColor.swift */,
+				4626A2572817A8A300A7A6AF /* AppUtility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		463AF21F2811521E006E269B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +174,7 @@
 		468AFA7028100ABF00372589 /* Project.TodoList */ = {
 			isa = PBXGroup;
 			children = (
+				4626A2502817A85E00A7A6AF /* Utility */,
 				468AFA7128100ABF00372589 /* AppDelegate.swift */,
 				468AFA7328100ABF00372589 /* SceneDelegate.swift */,
 				464234FE2815B5D90058BA4A /* View */,
@@ -454,8 +474,12 @@
 				463AF22928115F78006E269B /* Entry+CoreDataClass.swift in Sources */,
 				463AF2182811379E006E269B /* DetailToDoListViewController.swift in Sources */,
 				468AFA7228100ABF00372589 /* AppDelegate.swift in Sources */,
+				4626A2542817A88E00A7A6AF /* ExtensionDevice.swift in Sources */,
+				4626A2522817A87C00A7A6AF /* UIColorExtension.swift in Sources */,
 				468AFA7428100ABF00372589 /* SceneDelegate.swift in Sources */,
+				4626A2582817A8A300A7A6AF /* AppUtility.swift in Sources */,
 				463AF22A28115F78006E269B /* Entry+CoreDataProperties.swift in Sources */,
+				4626A2562817A89900A7A6AF /* AppColor.swift in Sources */,
 				463AF21D28115219006E269B /* ToDoListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
