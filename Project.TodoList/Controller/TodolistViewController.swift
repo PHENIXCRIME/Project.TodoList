@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class TodolistViewController: UIViewController {
     
@@ -13,6 +14,10 @@ class TodolistViewController: UIViewController {
     @IBOutlet weak var toDoListTableView: UITableView!
     @IBOutlet weak var imgButtonAdd: UIImageView!
     @IBOutlet weak var btnAddToDoList: UIButton!
+    
+    @IBOutlet weak var viewButtomLogout: UIView!
+    @IBOutlet weak var imgButtonLogout: UIImageView!
+    @IBOutlet weak var btnLogout: UIButton!
     
     var entries: [Entry] = []
     
@@ -58,12 +63,20 @@ class TodolistViewController: UIViewController {
         
         txTitle.text = "todo list".uppercased()
         
-        if let imgButton = UIImage(named: "ic_add") {
-            imgButtonAdd.image = imgButton
+        if let imageAdd = UIImage(named: "ic_add") {
+            imgButtonAdd.image = imageAdd
         }
         
         toDoListTableView.rowHeight = UITableView.automaticDimension
         toDoListTableView.separatorStyle = .none
+        
+        viewButtomLogout.backgroundColor = .clear
+        
+        if let imageLogout = UIImage(named: "ic_out") {
+            imgButtonLogout.image = imageLogout
+        }
+        
+        imgButtonLogout.contentMode = .scaleAspectFit
         
         registerCell()
     }
@@ -78,6 +91,17 @@ class TodolistViewController: UIViewController {
         
     }
     
+    @IBAction func btnLogout(_ sender: Any) {
+        GIDSignIn.sharedInstance.signOut()
+        presentViewController()
+    }
+    
+    func presentViewController() {
+        
+        let viewController = storyboard?.instantiateViewController(withIdentifier: LoginViewController.identifier) as! LoginViewController
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true, completion: nil)
+    }
 }
 
 extension TodolistViewController: UITableViewDataSource {

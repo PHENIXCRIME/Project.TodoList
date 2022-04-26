@@ -19,6 +19,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var txButtonLogin: UILabel!
     @IBOutlet weak var btnLogin: UIButton!
     
+    static let identifier = "LoginViewController"
+
     // 627157754249-gu0kin3dcn4e2t3vjsu5gesdeq430702.apps.googleusercontent.com
     let signInConfig = GIDConfiguration.init(clientID: "627157754249-gu0kin3dcn4e2t3vjsu5gesdeq430702.apps.googleusercontent.com")
     

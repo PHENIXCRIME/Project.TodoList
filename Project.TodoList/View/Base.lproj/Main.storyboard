@@ -60,12 +60,44 @@
                                     <constraint firstItem="iqG-0D-GQm" firstAttribute="top" secondItem="Kqc-OH-Urr" secondAttribute="top" id="vbK-DP-0z7"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kIa-2J-mdd">
+                                <rect key="frame" x="32" y="814" width="50" height="50"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SEF-nq-JiZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXM-nz-XEy">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="btnLogout:" destination="4EV-k3-wwM" eventType="touchUpInside" id="0xP-is-qOz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="zXM-nz-XEy" firstAttribute="leading" secondItem="kIa-2J-mdd" secondAttribute="leading" id="062-SM-BSk"/>
+                                    <constraint firstItem="zXM-nz-XEy" firstAttribute="top" secondItem="kIa-2J-mdd" secondAttribute="top" id="7we-2j-YkX"/>
+                                    <constraint firstAttribute="height" constant="50" id="EAc-1w-bTy"/>
+                                    <constraint firstAttribute="width" secondItem="kIa-2J-mdd" secondAttribute="height" multiplier="1:1" id="EDw-jv-p0o"/>
+                                    <constraint firstItem="SEF-nq-JiZ" firstAttribute="top" secondItem="kIa-2J-mdd" secondAttribute="top" id="IwY-JK-5jz"/>
+                                    <constraint firstAttribute="trailing" secondItem="SEF-nq-JiZ" secondAttribute="trailing" id="KUu-tg-CeK"/>
+                                    <constraint firstAttribute="bottom" secondItem="zXM-nz-XEy" secondAttribute="bottom" id="N3Y-6a-oQJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="zXM-nz-XEy" secondAttribute="trailing" id="NAK-vk-PTh"/>
+                                    <constraint firstAttribute="bottom" secondItem="SEF-nq-JiZ" secondAttribute="bottom" id="NxB-hc-jYi"/>
+                                    <constraint firstItem="SEF-nq-JiZ" firstAttribute="leading" secondItem="kIa-2J-mdd" secondAttribute="leading" id="tf1-Ha-hhE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qq2-VX-2oS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jlq-Bh-Pmw" firstAttribute="leading" secondItem="qq2-VX-2oS" secondAttribute="leading" constant="32" id="09Z-ZO-UcS"/>
+                            <constraint firstItem="kIa-2J-mdd" firstAttribute="top" secondItem="ctp-Q4-VZE" secondAttribute="bottom" constant="24" id="71T-4N-8Mc"/>
                             <constraint firstItem="qq2-VX-2oS" firstAttribute="trailing" secondItem="ctp-Q4-VZE" secondAttribute="trailing" constant="32" id="7aB-u0-Q9u"/>
+                            <constraint firstAttribute="bottom" secondItem="kIa-2J-mdd" secondAttribute="bottom" constant="32" id="8cs-Z7-yfK"/>
+                            <constraint firstItem="kIa-2J-mdd" firstAttribute="leading" secondItem="qq2-VX-2oS" secondAttribute="leading" constant="32" id="FIQ-f3-hUG"/>
                             <constraint firstItem="qq2-VX-2oS" firstAttribute="trailing" secondItem="jlq-Bh-Pmw" secondAttribute="trailing" constant="32" id="H12-jY-YCq"/>
                             <constraint firstItem="ctp-Q4-VZE" firstAttribute="leading" secondItem="qq2-VX-2oS" secondAttribute="leading" constant="32" id="Zrc-t1-Vmf"/>
                             <constraint firstAttribute="trailing" secondItem="Kqc-OH-Urr" secondAttribute="trailing" constant="32" id="gZl-7d-luR"/>
@@ -80,9 +112,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="btnAddToDoList" destination="dGL-hs-J9G" id="TTz-wP-lxw"/>
+                        <outlet property="btnLogout" destination="zXM-nz-XEy" id="1Lt-wh-TUD"/>
                         <outlet property="imgButtonAdd" destination="iqG-0D-GQm" id="mRi-TL-l9H"/>
+                        <outlet property="imgButtonLogout" destination="SEF-nq-JiZ" id="M1S-h6-jlt"/>
                         <outlet property="toDoListTableView" destination="ctp-Q4-VZE" id="E3G-ei-XgN"/>
                         <outlet property="txTitle" destination="jlq-Bh-Pmw" id="Yal-sF-Z3r"/>
+                        <outlet property="viewButtomLogout" destination="kIa-2J-mdd" id="rqK-et-XZ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wf3-jY-vlx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -258,7 +293,7 @@
         <!--Login View Controller-->
         <scene sceneID="C5M-nR-Yb2">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="4LE-93-6Xs" customClass="LoginViewController" customModule="Project_TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" modalPresentationStyle="fullScreen" id="4LE-93-6Xs" customClass="LoginViewController" customModule="Project_TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="knr-0l-X8F">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
