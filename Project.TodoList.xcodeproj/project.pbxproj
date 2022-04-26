@@ -11,6 +11,8 @@
 		4626A2542817A88E00A7A6AF /* ExtensionDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626A2532817A88E00A7A6AF /* ExtensionDevice.swift */; };
 		4626A2562817A89900A7A6AF /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626A2552817A89900A7A6AF /* AppColor.swift */; };
 		4626A2582817A8A300A7A6AF /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626A2572817A8A300A7A6AF /* AppUtility.swift */; };
+		4626A25C2817ADBE00A7A6AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4626A25B2817ADBE00A7A6AF /* GoogleService-Info.plist */; };
+		4626A25E2817AE0400A7A6AF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626A25D2817AE0400A7A6AF /* LoginViewController.swift */; };
 		463AF2162811253F006E269B /* TodolistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AF2152811253F006E269B /* TodolistViewController.swift */; };
 		463AF2182811379E006E269B /* DetailToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AF2172811379E006E269B /* DetailToDoListViewController.swift */; };
 		463AF21D28115219006E269B /* ToDoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AF21B28115219006E269B /* ToDoListCell.swift */; };
@@ -58,6 +60,8 @@
 		4626A2532817A88E00A7A6AF /* ExtensionDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDevice.swift; sourceTree = "<group>"; };
 		4626A2552817A89900A7A6AF /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		4626A2572817A8A300A7A6AF /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
+		4626A25B2817ADBE00A7A6AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4626A25D2817AE0400A7A6AF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		463AF2152811253F006E269B /* TodolistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodolistViewController.swift; sourceTree = "<group>"; };
 		463AF2172811379E006E269B /* DetailToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailToDoListViewController.swift; sourceTree = "<group>"; };
 		463AF21B28115219006E269B /* ToDoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListCell.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 		464234FD2815B5CC0058BA4A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4626A25D2817AE0400A7A6AF /* LoginViewController.swift */,
 				463AF2152811253F006E269B /* TodolistViewController.swift */,
 				463AF2172811379E006E269B /* DetailToDoListViewController.swift */,
 			);
@@ -185,6 +190,7 @@
 				468AFA7D28100AC100372589 /* Assets.xcassets */,
 				468AFA8228100AC100372589 /* Info.plist */,
 				468AFA7A28100ABF00372589 /* Project_TodoList.xcdatamodeld */,
+				4626A25B2817ADBE00A7A6AF /* GoogleService-Info.plist */,
 			);
 			path = Project.TodoList;
 			sourceTree = "<group>";
@@ -340,6 +346,7 @@
 			files = (
 				468AFA8128100AC100372589 /* LaunchScreen.storyboard in Resources */,
 				468AFA7E28100AC100372589 /* Assets.xcassets in Resources */,
+				4626A25C2817ADBE00A7A6AF /* GoogleService-Info.plist in Resources */,
 				468AFA7928100ABF00372589 /* Main.storyboard in Resources */,
 				463AF21E28115219006E269B /* ToDoListCell.xib in Resources */,
 			);
@@ -480,6 +487,7 @@
 				4626A2582817A8A300A7A6AF /* AppUtility.swift in Sources */,
 				463AF22A28115F78006E269B /* Entry+CoreDataProperties.swift in Sources */,
 				4626A2562817A89900A7A6AF /* AppColor.swift in Sources */,
+				4626A25E2817AE0400A7A6AF /* LoginViewController.swift in Sources */,
 				463AF21D28115219006E269B /* ToDoListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
