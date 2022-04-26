@@ -9,8 +9,6 @@ import UIKit
 
 class DetailToDoListViewController: UIViewController, UITextViewDelegate {
 
-    @IBOutlet weak var datePicker: UIDatePicker!
-    
     @IBOutlet weak var entryTextViewTaskTitle: UITextView!
     @IBOutlet weak var entryTextViewTaskDetail: UITextView!
     
@@ -27,6 +25,8 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var btnNewTask: UIButton!
     
     @IBOutlet weak var bottomTextViewTaskDetail: NSLayoutConstraint!
+    
+    static let identifier = "DetailToDoListViewController"
     
     var entry: Entry?
     
@@ -75,7 +75,8 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func btnCloseTask(_ sender: Any) {
         
-        navigationController?.popViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
+        presentViewController()
     }
     
     @IBAction func btnNewTask(_ sender: Any) {
@@ -92,7 +93,8 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
             }
         }
         
-        navigationController?.popViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
+        presentViewController()
     }
     
     @IBAction func btnDeleteToDoList(_ sender: Any) {
@@ -106,7 +108,8 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
             }
         }
         
-        navigationController?.popViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
+        presentViewController()
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -125,6 +128,13 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
             
             bottomTextViewTaskDetail.constant = keyboardHeightd
         }
+    }
+    
+    func presentViewController() {
+        
+        let viewController = storyboard?.instantiateViewController(withIdentifier: TodolistViewController.identifier) as! TodolistViewController
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true, completion: nil)
     }
     
 }
