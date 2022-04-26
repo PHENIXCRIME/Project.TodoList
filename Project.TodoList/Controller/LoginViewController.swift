@@ -51,6 +51,8 @@ class LoginViewController: UIViewController {
         if let imageIcon = UIImage(named: "ic_google") {
             imgIconButtonLogin.image = imageIcon
         }
+        
+        btnLogin.layer.cornerRadius = 20
     }
     
     @IBAction func btnLoginGoogle(_ sender: Any) {
@@ -69,18 +71,10 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func btnPushView(_ sender: Any) {
-
-    }
-    
     func presentViewController() {
         
         let viewController = storyboard?.instantiateViewController(withIdentifier: TodolistViewController.identifier) as! TodolistViewController
-//        let toDoViewController = TodolistViewController()
         viewController.modalPresentationStyle = .fullScreen
-//        toDoViewController.modalPresentationStyle = .fullScreen
-//        self.navigationController?.present(toDoViewController, animated: true)
-        
         self.present(viewController, animated: true, completion: nil)
     }
     
