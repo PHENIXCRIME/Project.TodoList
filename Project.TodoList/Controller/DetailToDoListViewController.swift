@@ -36,7 +36,7 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         prepareView()
-        
+
         entryTextViewTaskTitle.text = entry?.textTitle
         entryTextViewTaskDetail.text = entry?.textDetail
         

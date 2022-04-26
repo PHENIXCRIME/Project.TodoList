@@ -197,7 +197,7 @@
                                     <constraint firstAttribute="bottom" secondItem="deL-Xz-3E6" secondAttribute="bottom" constant="8" id="s5q-aZ-d6h"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter task title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yUK-tS-dR9">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yUK-tS-dR9">
                                 <rect key="frame" x="32" y="139" width="350" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -207,7 +207,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter task detail" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="H7u-E2-zAb">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="H7u-E2-zAb">
                                 <rect key="frame" x="32" y="205" width="350" height="569"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -253,6 +253,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IBt-sM-aMM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2720.289855072464" y="55.580357142857139"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="C5M-nR-Yb2">
+            <objects>
+                <viewController id="4LE-93-6Xs" customClass="LoginViewController" customModule="Project_TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="knr-0l-X8F">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeP-tL-nii">
+                                <rect key="frame" x="127.5" y="144" width="159.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Google Authencation"/>
+                                <connections>
+                                    <action selector="btnLoginGoogle:" destination="4LE-93-6Xs" eventType="touchUpInside" id="f9s-8N-WEq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbM-i2-SuX">
+                                <rect key="frame" x="32" y="207" width="350" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Press"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bJe-aU-wkq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YeP-tL-nii" firstAttribute="centerX" secondItem="knr-0l-X8F" secondAttribute="centerX" id="3rE-uj-wMe"/>
+                            <constraint firstItem="MbM-i2-SuX" firstAttribute="leading" secondItem="bJe-aU-wkq" secondAttribute="leading" constant="32" id="G8E-5z-APY"/>
+                            <constraint firstItem="MbM-i2-SuX" firstAttribute="top" secondItem="YeP-tL-nii" secondAttribute="bottom" constant="32" id="UxB-eG-gN2"/>
+                            <constraint firstItem="bJe-aU-wkq" firstAttribute="trailing" secondItem="MbM-i2-SuX" secondAttribute="trailing" constant="32" id="XyM-IV-iph"/>
+                            <constraint firstItem="YeP-tL-nii" firstAttribute="top" secondItem="bJe-aU-wkq" secondAttribute="top" constant="100" id="iVR-hU-uOb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnLogin" destination="YeP-tL-nii" id="k1E-zv-Del"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JGf-0x-zcV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1100" y="734"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6gh-oD-asD">
