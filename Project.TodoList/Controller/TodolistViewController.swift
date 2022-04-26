@@ -8,7 +8,7 @@
 import UIKit
 
 class TodolistViewController: UIViewController {
-
+    
     @IBOutlet weak var txTitle: UILabel!
     @IBOutlet weak var toDoListTableView: UITableView!
     @IBOutlet weak var imgButtonAdd: UIImageView!
@@ -18,11 +18,13 @@ class TodolistViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         prepareView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             
@@ -31,6 +33,12 @@ class TodolistViewController: UIViewController {
                 toDoListTableView.reloadData()
             }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -63,7 +71,7 @@ class TodolistViewController: UIViewController {
         toDoListTableView.register(ToDoListCell.self, forCellReuseIdentifier: ToDoListCell.identifier)
         toDoListTableView.register(UINib(nibName: ToDoListCell.identifier, bundle: nil), forCellReuseIdentifier: ToDoListCell.identifier)
     }
-
+    
     @IBAction func btnAddToDoList(_ sender: Any) {
         
         print("ToDoList")
@@ -92,11 +100,11 @@ extension TodolistViewController: UITableViewDataSource {
 }
 
 extension TodolistViewController: UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let entry = entries[indexPath.row]
-
+        
         performSegue(withIdentifier: "segueToEntry", sender: entry)
     }
 }
