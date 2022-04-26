@@ -16,6 +16,8 @@ class TodolistViewController: UIViewController {
     
     var entries: [Entry] = []
     
+    static let identifier = "TodolistViewController"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

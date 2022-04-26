@@ -25,8 +25,15 @@ class LoginViewController: UIViewController {
         
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
             guard error == nil else { return }
+            self.presentViewController()
         }
     }
     
-
+    func presentViewController() {
+        
+        let viewController = storyboard?.instantiateViewController(withIdentifier: TodolistViewController.identifier) as? TodolistViewController
+        viewController?.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(viewController!, animated: true)
+    }
+    
 }

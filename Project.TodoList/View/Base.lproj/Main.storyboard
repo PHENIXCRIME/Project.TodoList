@@ -11,7 +11,7 @@
         <!--ToDoList-->
         <scene sceneID="wPZ-Y6-IJf">
             <objects>
-                <viewController id="4EV-k3-wwM" customClass="TodolistViewController" customModule="Project_TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TodolistViewController" id="4EV-k3-wwM" customClass="TodolistViewController" customModule="Project_TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n1F-RN-Zaa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
