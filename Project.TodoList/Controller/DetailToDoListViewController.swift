@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class DetailToDoListViewController: UIViewController, UITextViewDelegate {
 
@@ -26,6 +28,8 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var bottomTextViewTaskDetail: NSLayoutConstraint!
     
+    var refToDoList: DatabaseReference!
+    
     static let identifier = "DetailToDoListViewController"
     
     var entry: Entry?
@@ -35,10 +39,11 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
+        refToDoList = Database.database().reference().child("toDoLists");
         prepareView()
 
-        entryTextViewTaskTitle.text = entry?.textTitle
-        entryTextViewTaskDetail.text = entry?.textDetail
+//        entryTextViewTaskTitle.text = entry?.textTitle
+//        entryTextViewTaskDetail.text = entry?.textDetail
         
         entryTextViewTaskTitle.delegate = self
         entryTextViewTaskDetail.delegate = self
@@ -46,7 +51,7 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+//        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
     func prepareView() {
@@ -81,43 +86,54 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func btnNewTask(_ sender: Any) {
         
-        if entry == nil {
-            
-            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-                
-                entry = Entry(context: context)
-                entry?.textTitle = entryTextViewTaskTitle.text
-                entry?.textDetail = entryTextViewTaskDetail.text
-                
-                entryTextViewTaskTitle.becomeFirstResponder()
-            }
-        }
-        
-//        navigationController?.popViewController(animated: true)
+//        if entry == nil {
+//
+//            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+//
+//                entry = Entry(context: context)
+//                entry?.textTitle = entryTextViewTaskTitle.text
+//                entry?.textDetail = entryTextViewTaskDetail.text
+//
+//                entryTextViewTaskTitle.becomeFirstResponder()
+//            }
+//        }
+         
+        addToDoList()
         presentViewController()
     }
     
     @IBAction func btnDeleteToDoList(_ sender: Any) {
         
         if entry != nil {
-            
+
             if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-                
+
                 context.delete(entry!)
                 try? context.save()
             }
         }
         
-//        navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
         presentViewController()
+    }
+    
+    func addToDoList() {
+        let key = refToDoList.childByAutoId().key
+        
+        let toDoLists = ["id": key,
+                        "titleToDoList": entryTextViewTaskTitle.text! as String,
+                        "detailToDoList": entryTextViewTaskDetail.text! as String
+        ]
+        
+        refToDoList.child(key ?? "1").setValue(toDoLists)
     }
     
     func textViewDidChange(_ textView: UITextView) {
         
-        entry?.textTitle = entryTextViewTaskTitle.text
-        entry?.textDetail = entryTextViewTaskDetail.text
-        
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+//        entry?.textTitle = entryTextViewTaskTitle.text
+//        entry?.textDetail = entryTextViewTaskDetail.text
+//
+//        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {

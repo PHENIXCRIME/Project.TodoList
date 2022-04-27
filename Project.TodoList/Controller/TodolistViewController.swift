@@ -7,6 +7,8 @@
 
 import UIKit
 import GoogleSignIn
+import Firebase
+import FirebaseDatabase
 
 class TodolistViewController: UIViewController {
     
@@ -22,10 +24,34 @@ class TodolistViewController: UIViewController {
     
     var entries: [Entry] = []
     
+    var refToDoList: DatabaseReference!
+    var toDoLists = [ToDoListModel]()
+    
     static let identifier = "TodolistViewController"
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refToDoList = Database.database().reference().child("toDoLists");
+        
+        refToDoList.observe(DataEventType.value, with: {(snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.toDoLists.removeAll()
+                
+                for todoLists in snapshot.children.allObjects as! [DataSnapshot] {
+                    let toDoListObject = todoLists.value as? [String: AnyObject]
+                    let toDoListTitle = toDoListObject?["titleToDoList"]
+                    let toDoListDetail = toDoListObject?["detailToDoList"]
+                    let toDoListId = toDoListObject?["id"]
+                    
+                    let toDoListAll = ToDoListModel(id: toDoListId as! String?, titleToDo: toDoListTitle as! String?, detailToDo: toDoListDetail as! String?)
+                    
+                    self.toDoLists.append(toDoListAll)
+                }
+                
+                self.toDoListTableView.reloadData()
+            }
+        })
         
         prepareView()
     }
@@ -114,16 +140,18 @@ extension TodolistViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return entries.count
+        return toDoLists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellToDoList = Bundle.main.loadNibNamed(ToDoListCell.identifier, owner: self, options: nil)?[0] as? ToDoListCell
         
-        let entry = entries[indexPath.row]
+        let toDoList: ToDoListModel
         
-        cellToDoList?.txTaskTitle?.text = entry.textTitle
+        toDoList = toDoLists[indexPath.row]
+        
+        cellToDoList?.txTaskTitle.text = toDoList.titleToDo
         
         return cellToDoList!
     }
@@ -134,8 +162,12 @@ extension TodolistViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let entry = entries[indexPath.row]
+        //        let entry = entries[indexPath.row]
         
-        performSegue(withIdentifier: "segueToEntry", sender: entry)
+        //        performSegue(withIdentifier: "segueToEntry", sender: entry)
+        let toDoList: ToDoListModel
+        
+        toDoList = toDoLists[indexPath.row]
+        
     }
 }
