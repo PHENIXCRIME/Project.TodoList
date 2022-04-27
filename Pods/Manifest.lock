@@ -10,6 +10,9 @@ PODS:
     - FirebaseAnalytics (~> 8.15.0)
   - Firebase/CoreOnly (8.15.0):
     - FirebaseCore (= 8.15.0)
+  - Firebase/Database (8.15.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 8.15.0)
   - FirebaseAnalytics (8.15.0):
     - FirebaseAnalytics/AdIdSupport (= 8.15.0)
     - FirebaseCore (~> 8.0)
@@ -42,6 +45,9 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/Logger (~> 7.7)
     - nanopb (~> 2.30908.0)
+  - FirebaseDatabase (8.15.0):
+    - FirebaseCore (~> 8.0)
+    - leveldb-library (~> 1.22)
   - FirebaseInstallations (8.15.0):
     - FirebaseCore (~> 8.0)
     - GoogleUtilities/Environment (~> 7.7)
@@ -98,6 +104,7 @@ PODS:
     - AppAuth/Core (~> 1.4)
     - GTMSessionFetcher/Core (~> 1.5)
   - GTMSessionFetcher/Core (1.7.1)
+  - leveldb-library (1.22.1)
   - Material (3.1.8):
     - Material/Core (= 3.1.8)
   - Material/Core (3.1.8):
@@ -760,6 +767,7 @@ PODS:
 
 DEPENDENCIES:
   - Firebase/Core
+  - Firebase/Database
   - FirebaseAuth
   - GoogleSignIn
   - Material
@@ -782,6 +790,7 @@ SPEC REPOS:
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
+    - FirebaseDatabase
     - FirebaseInstallations
     - GoogleAppMeasurement
     - GoogleDataTransport
@@ -789,6 +798,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMAppAuth
     - GTMSessionFetcher
+    - leveldb-library
     - Material
     - MaterialComponents
     - MDFInternationalization
@@ -807,6 +817,7 @@ SPEC CHECKSUMS:
   FirebaseAuth: 3e73bf8abf4fbb40f8b421f361f4cc48ee57388c
   FirebaseCore: 5743c5785c074a794d35f2fff7ecc254a91e08b1
   FirebaseCoreDiagnostics: 92e07a649aeb66352b319d43bdd2ee3942af84cb
+  FirebaseDatabase: f567afd233e54a303d84423207736590a6feb419
   FirebaseInstallations: 40bd9054049b2eae9a2c38ef1c3dd213df3605cd
   GoogleAppMeasurement: 4c19f031220c72464d460c9daa1fb5d1acce958e
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
@@ -814,6 +825,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   GTMAppAuth: 987526d41b07efb1bedda5e936fe0cb718a03113
   GTMSessionFetcher: 4577a4cc914a5a07c40a8a0ad0acc22080418c2d
+  leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Material: a2a3f400a3b549d53ef89e56c58c4535b29db387
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
@@ -825,6 +837,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
   UIColor_Hex_Swift: 31cd3e47440f07a20d2503a36bb0437a445b3c29
 
-PODFILE CHECKSUM: 25abe149ef3213aabcd6268aeaaa9ed3fb4bdf33
+PODFILE CHECKSUM: 5d09491c8e33887fbcfea4555b1c688a21503c8b
 
 COCOAPODS: 1.11.3
