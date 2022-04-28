@@ -79,18 +79,18 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func btnCloseTask(_ sender: Any) {
         
-        presentViewController()
+        backViewController()
     }
     
     @IBAction func btnNewTask(_ sender: Any) {
         
         addToDoList()
-        presentViewController()
+        backViewController()
     }
     
     @IBAction func btnDeleteToDoList(_ sender: Any) {
         
-        presentViewController()
+        backViewController()
     }
     
     func addToDoList() {
@@ -114,11 +114,9 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    func presentViewController() {
+    func backViewController() {
         
-        let viewController = storyboard?.instantiateViewController(withIdentifier: TodolistViewController.identifier) as! TodolistViewController
-        viewController.modalPresentationStyle = .fullScreen
-        self.present(viewController, animated: true, completion: nil)
+        self.dismiss(animated: true)
     }
     
 }
