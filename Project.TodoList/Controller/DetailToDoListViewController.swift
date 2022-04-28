@@ -11,9 +11,10 @@ import FirebaseDatabase
 
 class DetailToDoListViewController: UIViewController, UITextViewDelegate {
 
-    @IBOutlet weak var entryTextViewTaskTitle: UITextView!
-    @IBOutlet weak var entryTextViewTaskDetail: UITextView!
     
+    @IBOutlet weak var tfTaskTitle: UITextField!
+    @IBOutlet weak var tfTaskDetail: UITextField!
+
     @IBOutlet weak var viewBtnClose: UIView!
     @IBOutlet weak var imgBtnClose: UIImageView!
     @IBOutlet weak var btnClose: UIButton!
@@ -25,11 +26,14 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var txBtnNewTask: UILabel!
     @IBOutlet weak var imgBtnNewTask: UIImageView!
     @IBOutlet weak var btnNewTask: UIButton!
-    
-    @IBOutlet weak var bottomTextViewTaskDetail: NSLayoutConstraint!
+        
+    @IBOutlet weak var bottomTfTaskDetail: NSLayoutConstraint!
     
     var refToDoList: DatabaseReference!
     
+    var toDoLists = [ToDoListModel]()
+    var toDoListAll = [ToDoListModel]()
+        
     static let identifier = "DetailToDoListViewController"
     
     var entry: Entry?
@@ -42,16 +46,6 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
         refToDoList = Database.database().reference().child("toDoLists");
         prepareView()
 
-//        entryTextViewTaskTitle.text = entry?.textTitle
-//        entryTextViewTaskDetail.text = entry?.textDetail
-        
-        entryTextViewTaskTitle.delegate = self
-        entryTextViewTaskDetail.delegate = self
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        
-//        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
     func prepareView() {
@@ -76,44 +70,28 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
         if let imageBtnNewTask = UIImage(named: "ic_angle_up") {
             imgBtnNewTask.image = imageBtnNewTask
         }
+        
+        tfTaskTitle.placeholder = "Enter task title"
+        tfTaskDetail.placeholder = "Enter task detail"
+        
+        let newPosition = tfTaskDetail.beginningOfDocument
+        tfTaskDetail.selectedTextRange = tfTaskDetail.textRange(from: newPosition, to: newPosition)
+        
     }
     
     @IBAction func btnCloseTask(_ sender: Any) {
         
-//        navigationController?.popViewController(animated: true)
         presentViewController()
     }
     
     @IBAction func btnNewTask(_ sender: Any) {
-        
-//        if entry == nil {
-//
-//            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-//
-//                entry = Entry(context: context)
-//                entry?.textTitle = entryTextViewTaskTitle.text
-//                entry?.textDetail = entryTextViewTaskDetail.text
-//
-//                entryTextViewTaskTitle.becomeFirstResponder()
-//            }
-//        }
-         
+
         addToDoList()
         presentViewController()
     }
     
     @IBAction func btnDeleteToDoList(_ sender: Any) {
         
-        if entry != nil {
-
-            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-
-                context.delete(entry!)
-                try? context.save()
-            }
-        }
-        
-        navigationController?.popViewController(animated: true)
         presentViewController()
     }
     
@@ -121,19 +99,23 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
         let key = refToDoList.childByAutoId().key
         
         let toDoLists = ["id": key,
-                        "titleToDoList": entryTextViewTaskTitle.text! as String,
-                        "detailToDoList": entryTextViewTaskDetail.text! as String
+                        "titleToDoList": tfTaskTitle.text! as String,
+                        "detailToDoList": tfTaskDetail.text! as String
         ]
         
         refToDoList.child(key ?? "1").setValue(toDoLists)
     }
     
+    func prepareToDoList(listToDo: ToDoListModel) {
+
+//        let allToDo: ToDoListModel = listToDo
+        
+//        self.txTitle.text = allToDo.titleToDo ?? "1"
+//        self.txDetail.text = allToDo.detailToDo ?? "1"
+    }
+    
     func textViewDidChange(_ textView: UITextView) {
         
-//        entry?.textTitle = entryTextViewTaskTitle.text
-//        entry?.textDetail = entryTextViewTaskDetail.text
-//
-//        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -142,7 +124,7 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeightd = keyboardRectangle.height
             
-            bottomTextViewTaskDetail.constant = keyboardHeightd
+            bottomTfTaskDetail.constant = keyboardHeightd
         }
     }
     

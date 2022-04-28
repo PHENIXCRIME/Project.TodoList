@@ -124,6 +124,7 @@ class TodolistViewController: UIViewController {
     }
     
     @IBAction func btnLogout(_ sender: Any) {
+        
         GIDSignIn.sharedInstance.signOut()
         presentViewController()
     }
@@ -162,12 +163,51 @@ extension TodolistViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //        let entry = entries[indexPath.row]
-        
-        //        performSegue(withIdentifier: "segueToEntry", sender: entry)
         let toDoList: ToDoListModel
-        
         toDoList = toDoLists[indexPath.row]
         
+        
+        let aleartController = UIAlertController(title: "ToDoList", message: "edit or delete", preferredStyle: .alert)
+        
+        let updateAction = UIAlertAction(title: "Edit", style: .default){(_) in
+            
+            let id = toDoList.id
+            let title = aleartController.textFields?[0].text
+            let detail = aleartController.textFields?[1].text
+            
+            self.updateToDoList(id: id!, title: title!, detail: detail!)
+        }
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .default){(_) in
+            self.deleteToDoList(id: toDoList.id!)
+        }
+        
+        aleartController.addTextField{(UITextField) in
+            UITextField.text = toDoList.titleToDo
+        }
+        
+        aleartController.addTextField{(UITextField) in
+            UITextField.text = toDoList.detailToDo
+        }
+
+        aleartController.addAction(updateAction)
+        aleartController.addAction(deleteAction)
+
+        present(aleartController, animated: true, completion: nil)
+    }
+    
+    func updateToDoList(id: String, title: String, detail: String) {
+        
+        let toDoList = [
+            "id": id,
+            "titleToDoList": title,
+            "detailToDoList": detail
+        ]
+        
+        refToDoList.child(id).setValue(toDoList)
+    }
+    
+    func deleteToDoList(id: String) {
+        refToDoList.child(id).setValue(nil)
     }
 }
