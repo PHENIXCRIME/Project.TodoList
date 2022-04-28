@@ -9,7 +9,7 @@ import UIKit
 import GoogleSignIn
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var imgCenter: UIImageView!
     @IBOutlet weak var txTitleLogin: UILabel!
     @IBOutlet weak var txDetailTitleLogin: UILabel!
@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnLogin: UIButton!
     
     static let identifier = "LoginViewController"
-
+    
     let signInConfig = GIDConfiguration.init(clientID: "627157754249-gu0kin3dcn4e2t3vjsu5gesdeq430702.apps.googleusercontent.com")
     
     override func viewDidLoad() {

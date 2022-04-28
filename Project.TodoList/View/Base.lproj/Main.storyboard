@@ -42,7 +42,6 @@
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
                                             <action selector="btnAddToDoList:" destination="4EV-k3-wwM" eventType="touchUpInside" id="jZY-KS-VOE"/>
-                                            <segue destination="cQn-RD-ZnA" kind="show" identifier="segueToEntry" id="9cM-qI-7bd"/>
                                         </connections>
                                     </button>
                                 </subviews>

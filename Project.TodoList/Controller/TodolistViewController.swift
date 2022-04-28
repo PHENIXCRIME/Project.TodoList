@@ -75,17 +75,6 @@ class TodolistViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let entryVC = segue.destination as? DetailToDoListViewController {
-            
-            if let entryToBeSent = sender as? Entry {
-                
-                entryVC.entry = entryToBeSent
-            }
-        }
-    }
-    
     func prepareView() {
         
         view.backgroundColor = AppColor.blue100
@@ -117,10 +106,6 @@ class TodolistViewController: UIViewController {
         
         toDoListTableView.register(ToDoListCell.self, forCellReuseIdentifier: ToDoListCell.identifier)
         toDoListTableView.register(UINib(nibName: ToDoListCell.identifier, bundle: nil), forCellReuseIdentifier: ToDoListCell.identifier)
-    }
-    
-    @IBAction func btnAddToDoList(_ sender: Any) {
-        
     }
     
     @IBAction func btnLogout(_ sender: Any) {
@@ -189,10 +174,10 @@ extension TodolistViewController: UITableViewDelegate {
         aleartController.addTextField{(UITextField) in
             UITextField.text = toDoList.detailToDo
         }
-
+        
         aleartController.addAction(updateAction)
         aleartController.addAction(deleteAction)
-
+        
         present(aleartController, animated: true, completion: nil)
     }
     

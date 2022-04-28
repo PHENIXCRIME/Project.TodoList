@@ -10,11 +10,10 @@ import Firebase
 import FirebaseDatabase
 
 class DetailToDoListViewController: UIViewController, UITextViewDelegate {
-
     
     @IBOutlet weak var tfTaskTitle: UITextField!
     @IBOutlet weak var tfTaskDetail: UITextField!
-
+    
     @IBOutlet weak var viewBtnClose: UIView!
     @IBOutlet weak var imgBtnClose: UIImageView!
     @IBOutlet weak var btnClose: UIButton!
@@ -26,28 +25,28 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var txBtnNewTask: UILabel!
     @IBOutlet weak var imgBtnNewTask: UIImageView!
     @IBOutlet weak var btnNewTask: UIButton!
-        
+    
     @IBOutlet weak var bottomTfTaskDetail: NSLayoutConstraint!
     
     var refToDoList: DatabaseReference!
     
     var toDoLists = [ToDoListModel]()
     var toDoListAll = [ToDoListModel]()
-        
+    
     static let identifier = "DetailToDoListViewController"
     
     var entry: Entry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         refToDoList = Database.database().reference().child("toDoLists");
         prepareView()
-
+        
     }
-
+    
     func prepareView() {
         
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -64,7 +63,7 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
         
         viewBtnNewTask.backgroundColor = AppColor.grayF7
         viewBtnNewTask.layer.cornerRadius = 20
-    
+        
         txBtnNewTask.text = "New Task"
         
         if let imageBtnNewTask = UIImage(named: "ic_angle_up") {
@@ -76,7 +75,6 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
         
         let newPosition = tfTaskDetail.beginningOfDocument
         tfTaskDetail.selectedTextRange = tfTaskDetail.textRange(from: newPosition, to: newPosition)
-        
     }
     
     @IBAction func btnCloseTask(_ sender: Any) {
@@ -85,7 +83,7 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func btnNewTask(_ sender: Any) {
-
+        
         addToDoList()
         presentViewController()
     }
@@ -99,23 +97,11 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
         let key = refToDoList.childByAutoId().key
         
         let toDoLists = ["id": key,
-                        "titleToDoList": tfTaskTitle.text! as String,
-                        "detailToDoList": tfTaskDetail.text! as String
+                         "titleToDoList": tfTaskTitle.text! as String,
+                         "detailToDoList": tfTaskDetail.text! as String
         ]
         
         refToDoList.child(key ?? "1").setValue(toDoLists)
-    }
-    
-    func prepareToDoList(listToDo: ToDoListModel) {
-
-//        let allToDo: ToDoListModel = listToDo
-        
-//        self.txTitle.text = allToDo.titleToDo ?? "1"
-//        self.txDetail.text = allToDo.detailToDo ?? "1"
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
