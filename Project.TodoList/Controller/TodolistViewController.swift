@@ -35,7 +35,7 @@ class TodolistViewController: UIViewController {
         refToDoList = Database.database().reference().child("toDoLists");
         
         refToDoList.observe(DataEventType.value, with: {(snapshot) in
-            if snapshot.childrenCount > 0 {
+            if snapshot.childrenCount >= 0 {
                 self.toDoLists.removeAll()
                 
                 for todoLists in snapshot.children.allObjects as! [DataSnapshot] {
@@ -50,7 +50,7 @@ class TodolistViewController: UIViewController {
                 }
                 
                 self.toDoListTableView.reloadData()
-            }
+            } 
         })
         
         prepareView()
