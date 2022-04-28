@@ -21,7 +21,6 @@ class LoginViewController: UIViewController {
     
     static let identifier = "LoginViewController"
 
-    // 627157754249-gu0kin3dcn4e2t3vjsu5gesdeq430702.apps.googleusercontent.com
     let signInConfig = GIDConfiguration.init(clientID: "627157754249-gu0kin3dcn4e2t3vjsu5gesdeq430702.apps.googleusercontent.com")
     
     override func viewDidLoad() {
@@ -58,11 +57,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func btnLoginGoogle(_ sender: Any) {
-        
-//        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
-//            guard error == nil else { return }
-//            self.presentViewController()
-//        }
         
         GIDSignIn.sharedInstance.signIn( with: signInConfig, presenting: self ) { user, error in
             guard error == nil else { return }
