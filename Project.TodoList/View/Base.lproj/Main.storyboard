@@ -41,7 +41,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
-                                            <action selector="btnAddToDoList:" destination="4EV-k3-wwM" eventType="touchUpInside" id="jZY-KS-VOE"/>
+                                            <action selector="btnAddToDo:" destination="4EV-k3-wwM" eventType="touchUpInside" id="ikh-Z5-uKz"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -110,7 +110,7 @@
                         <barButtonItem key="backBarButtonItem" title="back" id="7UV-2Q-zaW"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="btnAddToDoList" destination="dGL-hs-J9G" id="TTz-wP-lxw"/>
+                        <outlet property="btnAddToDoList" destination="dGL-hs-J9G" id="Ai4-jn-gIj"/>
                         <outlet property="btnLogout" destination="zXM-nz-XEy" id="1Lt-wh-TUD"/>
                         <outlet property="imgButtonAdd" destination="iqG-0D-GQm" id="mRi-TL-l9H"/>
                         <outlet property="imgButtonLogout" destination="SEF-nq-JiZ" id="M1S-h6-jlt"/>
@@ -127,7 +127,7 @@
         <!--Detail To Do List View Controller-->
         <scene sceneID="7Bx-Mn-x4M">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="cQn-RD-ZnA" customClass="DetailToDoListViewController" customModule="Project_TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailToDoListViewController" modalPresentationStyle="fullScreen" id="cQn-RD-ZnA" customClass="DetailToDoListViewController" customModule="Project_TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UoY-MY-wRJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

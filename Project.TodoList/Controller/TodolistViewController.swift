@@ -114,12 +114,25 @@ class TodolistViewController: UIViewController {
         presentViewController()
     }
     
+    @IBAction func btnAddToDo(_ sender: Any) {
+        presentDetailToDoViewController()
+    }
+    
     func presentViewController() {
         
         let viewController = storyboard?.instantiateViewController(withIdentifier: LoginViewController.identifier) as! LoginViewController
         viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: true, completion: nil)
     }
+    
+    
+    func presentDetailToDoViewController() {
+        
+        let viewController = storyboard?.instantiateViewController(withIdentifier: DetailToDoListViewController.identifier) as! DetailToDoListViewController
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
 }
 
 extension TodolistViewController: UITableViewDataSource {
