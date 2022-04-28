@@ -59,7 +59,6 @@ class LoginViewController: UIViewController {
         
         GIDSignIn.sharedInstance.signIn( with: signInConfig, presenting: self ) { user, error in
             guard error == nil else { return }
-            guard let user = user else { return }
             
             self.presentViewController()
         }
