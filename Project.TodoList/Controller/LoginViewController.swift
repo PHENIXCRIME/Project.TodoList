@@ -27,7 +27,6 @@ class LoginViewController: UIViewController {
         
         super.viewDidLoad()
         prepareView()
-
     }
     
     func prepareView() {
@@ -63,7 +62,6 @@ class LoginViewController: UIViewController {
             guard let user = user else { return }
             
             self.presentViewController()
-            // Your user is signed in!
         }
     }
     
