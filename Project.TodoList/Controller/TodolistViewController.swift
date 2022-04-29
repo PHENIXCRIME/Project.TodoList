@@ -164,7 +164,6 @@ extension TodolistViewController: UITableViewDelegate {
         let toDoList: ToDoListModel
         toDoList = toDoLists[indexPath.row]
         
-        
         let aleartController = UIAlertController(title: "ToDoList", message: "edit or delete", preferredStyle: .alert)
         
         let updateAction = UIAlertAction(title: "Edit", style: .default){(_) in

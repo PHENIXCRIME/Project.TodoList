@@ -25,6 +25,10 @@ target 'Project.TodoList' do
   
   pod 'MaterialComponents'
   pod 'MaterialComponents/TextFields'
+  pod 'MaterialComponents/TextControls+FilledTextAreas'
+  pod 'MaterialComponents/TextControls+FilledTextFields'
+  pod 'MaterialComponents/TextControls+OutlinedTextAreas'
+  pod 'MaterialComponents/TextControls+OutlinedTextFields'
   pod 'MaterialComponents/LibraryInfo'
   pod 'MaterialComponents/BottomNavigation'
   pod 'MaterialComponents/Buttons'

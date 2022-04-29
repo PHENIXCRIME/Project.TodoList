@@ -8,11 +8,16 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import MaterialComponents.MaterialTextControls_FilledTextAreasTheming
+import MaterialComponents.MaterialTextControls_FilledTextFieldsTheming
+import MaterialComponents.MaterialTextControls_OutlinedTextAreasTheming
+import MaterialComponents.MaterialTextControls_OutlinedTextFieldsTheming
+import Material
 
 class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     
-    @IBOutlet weak var tfTaskTitle: UITextField!
-    @IBOutlet weak var tfTaskDetail: UITextField!
+    @IBOutlet weak var tfTaskTitle: MDCFilledTextField!
+    @IBOutlet weak var tfTaskDetail: MDCFilledTextField!
     
     @IBOutlet weak var viewBtnClose: UIView!
     @IBOutlet weak var imgBtnClose: UIImageView!
@@ -79,26 +84,44 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func btnCloseTask(_ sender: Any) {
         
-        backViewController()
+        backToDoListViewController()
     }
     
     @IBAction func btnNewTask(_ sender: Any) {
         
-        addToDoList()
-        backViewController()
+        checkDataToDoList(txTitle: tfTaskTitle.text, txDetail: tfTaskDetail.text)
+        backToDoListViewController()
     }
     
     @IBAction func btnDeleteToDoList(_ sender: Any) {
         
-        backViewController()
+        backToDoListViewController()
     }
     
-    func addToDoList() {
+    func checkDataToDoList(txTitle: String?, txDetail: String?) {
+        
+        if (txTitle?.count ?? 0) == 0 && (txDetail?.count ?? 0) == 0 {
+    
+            showWrongBoth(controller: self)
+        } else if (txTitle?.count ?? 0) == 0 {
+            
+            showTitleToDoRequired(controller: self)
+        } else if (txDetail?.count ?? 0) == 0 {
+            
+            showDetailToDoRequired(controller: self)
+        } else if let title = txTitle, let detail = txDetail{
+            
+            addDataToDoList(toDoTitle: title, toDoDetail: detail)
+        }
+    }
+
+    func addDataToDoList(toDoTitle: String, toDoDetail: String) {
+        
         let key = refToDoList.childByAutoId().key
         
         let toDoLists = ["id": key,
-                         "titleToDoList": tfTaskTitle.text! as String,
-                         "detailToDoList": tfTaskDetail.text! as String
+                         "titleToDoList": toDoTitle,
+                         "detailToDoList": toDoDetail
         ]
         
         refToDoList.child(key ?? "1").setValue(toDoLists)
@@ -114,9 +137,33 @@ class DetailToDoListViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    func backViewController() {
+    func backToDoListViewController() {
         
         self.dismiss(animated: true)
+    }
+    
+    func showTitleToDoRequired(controller: UIViewController) {
+        
+        let alert = UIAlertController(title: "Sorry!", message: "TitleToDo is required.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+        }))
+        controller.present(alert, animated: true, completion: nil)
+    }
+    
+    func showDetailToDoRequired(controller: UIViewController) {
+        
+        let alert = UIAlertController(title: "Sorry!", message: "DetailToDo is required.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+        }))
+        controller.present(alert, animated: true, completion: nil)
+    }
+    
+    func showWrongBoth(controller: UIViewController) {
+        
+        let alert = UIAlertController(title: "Sorry!", message: "TitleToDo and DetailToDo is required.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+        }))
+        controller.present(alert, animated: true, completion: nil)
     }
     
 }
