@@ -775,10 +775,6 @@ DEPENDENCIES:
   - MaterialComponents/BottomNavigation
   - MaterialComponents/Buttons
   - MaterialComponents/LibraryInfo
-  - "MaterialComponents/TextControls+FilledTextAreas"
-  - "MaterialComponents/TextControls+FilledTextFields"
-  - "MaterialComponents/TextControls+OutlinedTextAreas"
-  - "MaterialComponents/TextControls+OutlinedTextFields"
   - MaterialComponents/TextFields
   - UIColor_Hex_Swift
 
@@ -837,6 +833,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
   UIColor_Hex_Swift: 31cd3e47440f07a20d2503a36bb0437a445b3c29
 
-PODFILE CHECKSUM: 5d09491c8e33887fbcfea4555b1c688a21503c8b
+PODFILE CHECKSUM: 089dc0ce22baf8299da41f90873089d6088e9e0c
 
 COCOAPODS: 1.11.3
